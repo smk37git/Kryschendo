@@ -29,15 +29,10 @@ COPY --from=builder /install /usr/local
 COPY . .
 
 # Build static files and bake SQLite database into image
-RUN SECRET_KEY=build-placeholder \
-    DATABASE_URL=sqlite:///app/db.sqlite3 \
-    python manage.py collectstatic --noinput && \
-    SECRET_KEY=build-placeholder \
-    DATABASE_URL=sqlite:///app/db.sqlite3 \
-    python manage.py migrate --run-syncdb && \
-    SECRET_KEY=build-placeholder \
-    DATABASE_URL=sqlite:///app/db.sqlite3 \
-    python manage.py load_testimonials
+# Omit DATABASE_URL so settings.py default (BASE_DIR / db.sqlite3) is used
+RUN SECRET_KEY=build-placeholder python manage.py collectstatic --noinput && \
+    SECRET_KEY=build-placeholder python manage.py migrate --run-syncdb && \
+    SECRET_KEY=build-placeholder python manage.py load_testimonials
 
 # Make db writable by app user (for admin session writes, etc.)
 RUN chown app:app /app/db.sqlite3
