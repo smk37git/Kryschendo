@@ -3,7 +3,7 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
+<section class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden" id="hero">
   <!-- Layered background -->
   <div class="absolute inset-0 hero-gradient"></div>
   <div class="absolute inset-0 hero-radial"></div>
@@ -40,19 +40,19 @@
 
   <!-- Hero content with staggered text reveal -->
   <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
-    <p class="hero-reveal text-gold font-body text-sm md:text-base tracking-[0.3em] uppercase mb-6" data-delay="0">Energy Healing & Spiritual Guidance</p>
-    <h1 class="font-heading text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white mb-6">
+    <p class="hero-reveal text-gold font-body text-xs sm:text-sm md:text-base tracking-[0.3em] uppercase mb-3 sm:mb-6" data-delay="0">Energy Healing & Spiritual Guidance</p>
+    <h1 class="font-heading text-[2.25rem] sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white mb-3 sm:mb-6">
       <span class="hero-reveal-char" data-text="Krystene Du Maurier"></span>
     </h1>
-    <div class="hero-reveal hero-divider-animated mx-auto mb-8" data-delay="800"></div>
-    <p class="hero-reveal text-cream/90 font-body text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" data-delay="1000">
+    <div class="hero-reveal hero-divider-animated mx-auto mb-4 sm:mb-8" data-delay="800"></div>
+    <p class="hero-reveal text-cream/90 font-body text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed" data-delay="1000">
       Reconnect with your unique Quantum Blueprint. Experience the dynamic intersection of energy and matter through healing, guidance, and transformation.
     </p>
-    <div class="hero-reveal flex flex-col sm:flex-row gap-4 justify-center" data-delay="1200">
-      <a href="{% url 'main:contact' %}" class="hero-btn-primary bg-gold hover:bg-gold-dark text-white px-8 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/25">
+    <div class="hero-reveal flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center" data-delay="1200">
+      <a href="{% url 'main:contact' %}" class="hero-btn-primary bg-gold hover:bg-gold-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/25">
         Book a Session
       </a>
-      <a href="{% url 'main:about' %}" class="hero-btn-secondary border border-white/30 hover:border-gold text-white hover:text-gold px-8 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300">
+      <a href="{% url 'main:about' %}" class="hero-btn-secondary border border-white/30 hover:border-gold text-white hover:text-gold px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300">
         Learn More
       </a>
     </div>
