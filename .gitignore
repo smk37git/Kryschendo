@@ -1,0 +1,40 @@
+# Python
+*.pyc
+__pycache__/
+*.egg-info/
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables
+config/.env
+
+# Django
+db.sqlite3
+staticfiles/
+media/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Claude Code
+.claude/
+.mcp.json
+CLAUDE.md
+
+# Node (temp tooling)
+node_modules/
+package.json
+package-lock.json

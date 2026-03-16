@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Kryschendo — Krystene Du Maurier{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Krystene Du Maurier — Energy healer, intuitive channel, musician, and teacher in Seattle, WA. Remote and in-person healing sessions available.{% endblock %}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% block og_title %}Kryschendo — Krystene Du Maurier{% endblock %}">
+  <meta property="og:description" content="Energy healing, spiritual guidance, and personal transformation in Seattle, WA.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: { DEFAULT: '#2D5A5A', dark: '#1E3D3D', light: '#3D7A7A' },
+            gold: { DEFAULT: '#C4A265', light: '#D4B87A', dark: '#A88A50' },
+            cream: { DEFAULT: '#E8D5B7', light: '#F2E8D8' },
+            warm: { DEFAULT: '#FAFAF7' },
+            near: { black: '#2C2C2C' },
+          },
+          fontFamily: {
+            heading: ['"Cormorant Garamond"', 'serif'],
+            body: ['Lato', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-warm font-body text-near-black antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-teal/95 backdrop-blur-sm shadow-lg transition-all duration-300" id="main-nav">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="{% url 'main:index' %}" class="flex items-center space-x-2">
+          <span class="font-heading text-2xl md:text-3xl font-semibold text-white tracking-wide">Kryschendo</span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <a href="{% url 'main:index' %}" class="text-white/90 hover:text-gold transition-colors duration-300 font-body text-sm tracking-widest uppercase">Home</a>
+          <a href="{% url 'main:about' %}" class="text-white/90 hover:text-gold transition-colors duration-300 font-body text-sm tracking-widest uppercase">About</a>
+          <a href="{% url 'store:service_list' %}" class="text-white/90 hover:text-gold transition-colors duration-300 font-body text-sm tracking-widest uppercase">Services</a>
+          <a href="{% url 'store:review_list' %}" class="text-white/90 hover:text-gold transition-colors duration-300 font-body text-sm tracking-widest uppercase">Reviews</a>
+          <a href="{% url 'main:contact' %}" class="text-white/90 hover:text-gold transition-colors duration-300 font-body text-sm tracking-widest uppercase">Contact</a>
+          <a href="{% url 'main:contact' %}" class="bg-gold hover:bg-gold-dark text-white px-5 py-2 rounded-md text-sm font-semibold tracking-wider uppercase transition-colors duration-300">Book a Session</a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button class="lg:hidden text-white focus:outline-none" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="hidden lg:hidden bg-teal-dark border-t border-white/10" id="mobile-menu">
+      <div class="px-4 py-4 space-y-3">
+        <a href="{% url 'main:index' %}" class="block text-white/90 hover:text-gold transition-colors py-2 text-sm tracking-widest uppercase">Home</a>
+        <a href="{% url 'main:about' %}" class="block text-white/90 hover:text-gold transition-colors py-2 text-sm tracking-widest uppercase">About</a>
+        <a href="{% url 'store:service_list' %}" class="block text-white/90 hover:text-gold transition-colors py-2 text-sm tracking-widest uppercase">Services</a>
+        <a href="{% url 'store:review_list' %}" class="block text-white/90 hover:text-gold transition-colors py-2 text-sm tracking-widest uppercase">Reviews</a>
+        <a href="{% url 'main:contact' %}" class="block text-white/90 hover:text-gold transition-colors py-2 text-sm tracking-widest uppercase">Contact</a>
+        <a href="{% url 'main:contact' %}" class="block bg-gold hover:bg-gold-dark text-white px-5 py-3 rounded-md text-sm font-semibold tracking-wider uppercase text-center mt-2 transition-colors">Book a Session</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-teal text-cream-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <!-- Brand -->
+        <div>
+          <h3 class="font-heading text-2xl font-semibold text-white mb-4">Kryschendo</h3>
+          <p class="text-cream/80 text-sm leading-relaxed">
+            The dynamic intersection of energy and matter. Reconnect with your unique Quantum Blueprint.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-gold mb-4">Navigate</h4>
+          <ul class="space-y-2">
+            <li><a href="{% url 'main:index' %}" class="text-cream/80 hover:text-gold transition-colors text-sm">Home</a></li>
+            <li><a href="{% url 'main:about' %}" class="text-cream/80 hover:text-gold transition-colors text-sm">About Krystene</a></li>
+            <li><a href="{% url 'store:service_list' %}" class="text-cream/80 hover:text-gold transition-colors text-sm">Services</a></li>
+            <li><a href="{% url 'store:review_list' %}" class="text-cream/80 hover:text-gold transition-colors text-sm">Reviews</a></li>
+            <li><a href="{% url 'main:contact' %}" class="text-cream/80 hover:text-gold transition-colors text-sm">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Connect -->
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-gold mb-4">Connect</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="https://www.youtube.com/@krysteneduma" target="_blank" rel="noopener noreferrer" class="text-cream/80 hover:text-gold transition-colors text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.9 31.9 0 0 0 24 12a31.9 31.9 0 0 0-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+                YouTube
+              </a>
+            </li>
+            <li>
+              <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer" class="text-cream/80 hover:text-gold transition-colors text-sm">
+                12listen.com
+              </a>
+            </li>
+            <li class="text-cream/80 text-sm flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              Seattle, WA
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8 border-t border-white/10 text-center">
+        <p class="text-cream/60 text-xs">&copy; {% now "Y" %} Kryschendo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="{% static 'main/js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

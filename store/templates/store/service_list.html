@@ -1,0 +1,70 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Services — Kryschendo{% endblock %}
+{% block meta_description %}Explore Krystene Du Maurier's healing services: remote healing, in-person sessions, and educational forums in Seattle, WA.{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-teal to-teal-dark">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4 fade-in-up">What I Offer</p>
+    <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 fade-in-up" style="transition-delay: 0.1s;">Services & Offerings</h1>
+    <div class="section-divider mb-6 fade-in-up" style="transition-delay: 0.2s;"></div>
+    <p class="text-cream/80 text-lg max-w-2xl mx-auto fade-in-up" style="transition-delay: 0.3s;">
+      Experience healing and transformation through personalized sessions designed to reconnect you with your innate well-being.
+    </p>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section class="py-16 md:py-24 bg-warm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    {% if services %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for service in services %}
+      <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md border border-cream hover:border-gold/30 transition-all duration-300 fade-in-up">
+        {% if service.image %}
+        <img src="{{ service.image.url }}" alt="{{ service.title }}" class="w-full h-48 object-cover rounded-md mb-6">
+        {% else %}
+        <div class="w-14 h-14 bg-teal/10 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+        </div>
+        {% endif %}
+
+        <h3 class="font-heading text-xl font-semibold text-teal mb-3">{{ service.title }}</h3>
+        <p class="text-near-black/70 text-sm leading-relaxed mb-4">{{ service.description|truncatewords:40 }}</p>
+
+        {% if service.price %}
+        <p class="text-gold font-semibold mb-4">${{ service.price }}</p>
+        {% endif %}
+
+        <a href="{% url 'store:service_detail' service.slug %}" class="inline-flex items-center text-teal hover:text-gold font-semibold text-sm tracking-wider uppercase transition-colors duration-300 gap-2">
+          Learn More
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-12">
+      <p class="text-near-black/60 text-lg mb-4">Services are being updated. Please check back soon.</p>
+      <a href="{% url 'main:contact' %}" class="text-teal hover:text-gold font-semibold text-sm tracking-wider uppercase transition-colors">Contact Krystene for details</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 md:py-20 bg-teal">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+    <h2 class="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">Ready to Experience Healing?</h2>
+    <p class="text-cream/80 text-lg mb-8">Schedule your session today — available remotely or in person.</p>
+    <a href="{% url 'main:contact' %}" class="inline-block bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/25">
+      Book a Session
+    </a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,259 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
+  <!-- Layered background -->
+  <div class="absolute inset-0 hero-gradient"></div>
+  <div class="absolute inset-0 hero-radial"></div>
+
+  <!-- Sacred geometry SVG overlay -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <svg class="hero-geometry w-[600px] h-[600px] md:w-[800px] md:h-[800px] opacity-0" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="150" stroke="rgba(196,162,101,0.08)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="120" stroke="rgba(196,162,101,0.06)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="90" stroke="rgba(196,162,101,0.05)" stroke-width="0.5"/>
+      <!-- Flower of life hint -->
+      <circle cx="200" cy="125" r="75" stroke="rgba(196,162,101,0.04)" stroke-width="0.5"/>
+      <circle cx="265" cy="162" r="75" stroke="rgba(196,162,101,0.04)" stroke-width="0.5"/>
+      <circle cx="265" cy="238" r="75" stroke="rgba(196,162,101,0.04)" stroke-width="0.5"/>
+      <circle cx="200" cy="275" r="75" stroke="rgba(196,162,101,0.04)" stroke-width="0.5"/>
+      <circle cx="135" cy="238" r="75" stroke="rgba(196,162,101,0.04)" stroke-width="0.5"/>
+      <circle cx="135" cy="162" r="75" stroke="rgba(196,162,101,0.04)" stroke-width="0.5"/>
+      <!-- Inner triangle -->
+      <polygon points="200,80 320,280 80,280" stroke="rgba(196,162,101,0.06)" stroke-width="0.5" fill="none"/>
+      <polygon points="200,320 80,120 320,120" stroke="rgba(196,162,101,0.06)" stroke-width="0.5" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- Animated glow orbs -->
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+
+  <!-- Floating particles container -->
+  <div class="hero-particles absolute inset-0 pointer-events-none" id="hero-particles"></div>
+
+  <!-- Light rays -->
+  <div class="hero-rays absolute inset-0 pointer-events-none opacity-0"></div>
+
+  <!-- Hero content with staggered text reveal -->
+  <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+    <p class="hero-reveal text-gold font-body text-sm md:text-base tracking-[0.3em] uppercase mb-6" data-delay="0">Energy Healing & Spiritual Guidance</p>
+    <h1 class="font-heading text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white mb-6">
+      <span class="hero-reveal-char" data-text="Krystene Du Maurier"></span>
+    </h1>
+    <div class="hero-reveal hero-divider-animated mx-auto mb-8" data-delay="800"></div>
+    <p class="hero-reveal text-cream/90 font-body text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" data-delay="1000">
+      Reconnect with your unique Quantum Blueprint. Experience the dynamic intersection of energy and matter through healing, guidance, and transformation.
+    </p>
+    <div class="hero-reveal flex flex-col sm:flex-row gap-4 justify-center" data-delay="1200">
+      <a href="{% url 'main:contact' %}" class="hero-btn-primary bg-gold hover:bg-gold-dark text-white px-8 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/25">
+        Book a Session
+      </a>
+      <a href="{% url 'main:about' %}" class="hero-btn-secondary border border-white/30 hover:border-gold text-white hover:text-gold px-8 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300">
+        Learn More
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-reveal absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce" data-delay="1600">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+    </svg>
+  </div>
+</section>
+
+<!-- About Preview Section -->
+<section class="py-16 md:py-24 bg-warm" id="about-preview">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Portrait -->
+      <div class="fade-in-up">
+        <div class="aspect-[3/4] rounded-lg overflow-hidden shadow-xl">
+          <img src="{% static 'main/images/krysten_headshot.jfif' %}" alt="Krystene Du Maurier — energy healer and intuitive channel" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <!-- Bio text -->
+      <div class="fade-in-up" style="transition-delay: 0.2s;">
+        <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">About Krystene</p>
+        <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-6">A Journey of Healing & Discovery</h2>
+        <div class="section-divider !mx-0 mb-6"></div>
+        <p class="text-near-black/80 leading-relaxed mb-4">
+          Krystene Du Maurier is a multi-faceted clairsentient creator, recognized for her diverse talents as an energy healer, intuitive channel, musician, author, teacher and numerologist.
+        </p>
+        <p class="text-near-black/80 leading-relaxed mb-6">
+          Drawing from foundations in music and sound healing, holistic well-being practices, and nervous system regulation, Krystene seamlessly weaves together ancient wisdom and modern quantum principles in her work.
+        </p>
+        <a href="{% url 'main:about' %}" class="inline-flex items-center text-teal hover:text-gold font-semibold text-sm tracking-wider uppercase transition-colors duration-300 gap-2">
+          Read Full Bio
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Preview Section -->
+{% if services %}
+<section class="py-16 md:py-24 bg-cream-light" id="services-preview">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 fade-in-up">
+      <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">What I Offer</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-4">Services & Offerings</h2>
+      <div class="section-divider mb-6"></div>
+      <p class="text-near-black/70 max-w-2xl mx-auto">
+        Experience healing and transformation through personalized sessions designed to reconnect you with your innate well-being.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for service in services %}
+      <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md border border-cream hover:border-gold/30 transition-all duration-300 fade-in-up">
+        <div class="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-semibold text-teal mb-3">{{ service.title }}</h3>
+        <p class="text-near-black/70 text-sm leading-relaxed">{{ service.description|truncatewords:30 }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-10 fade-in-up">
+      <a href="{% url 'store:service_list' %}" class="inline-flex items-center text-teal hover:text-gold font-semibold text-sm tracking-wider uppercase transition-colors duration-300 gap-2">
+        View All Services
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Testimonials Section -->
+{% if reviews %}
+<section class="py-16 md:py-24 bg-warm overflow-hidden" id="testimonials">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 fade-in-up">
+      <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Client Experiences</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-4">Words of Transformation</h2>
+      <div class="section-divider mb-6"></div>
+    </div>
+
+    <div class="carousel-container relative" id="testimonial-carousel">
+      <div class="overflow-hidden rounded-lg">
+        <div class="testimonial-track" id="testimonial-track">
+          {% for review in reviews %}
+          <div class="testimonial-card" data-index="{{ forloop.counter0 }}">
+            <div class="testimonial-card-inner bg-white rounded-lg p-6 md:p-8 shadow-sm border border-cream hover:border-gold/30 mx-2 h-full flex flex-col transition-all duration-300 hover:shadow-md">
+              <!-- Quote icon -->
+              <svg class="w-8 h-8 text-gold/20 mb-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/>
+              </svg>
+              <div class="star-rating text-sm mb-3">
+                {% for i in "12345" %}
+                  {% if forloop.counter <= review.rating %}&#9733;{% else %}&#9734;{% endif %}
+                {% endfor %}
+              </div>
+              <p class="text-near-black/80 text-sm leading-relaxed flex-grow italic">"{{ review.body|truncatewords:50 }}"</p>
+              <div class="mt-4 pt-4 border-t border-cream flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
+                  <span class="text-teal font-semibold text-sm">{{ review.author_name|first }}</span>
+                </div>
+                <p class="text-teal font-semibold text-sm">{{ review.author_name }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <button id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 bg-white shadow-lg rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-teal hover:text-gold hover:shadow-xl transition-all duration-300 z-10 group" aria-label="Previous testimonial">
+        <svg class="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button id="carousel-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 bg-white shadow-lg rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-teal hover:text-gold hover:shadow-xl transition-all duration-300 z-10 group" aria-label="Next testimonial">
+        <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+
+      <!-- Progress indicator -->
+      <div class="flex items-center justify-center mt-8 gap-3" id="carousel-progress">
+        <div class="carousel-dots flex gap-2" id="carousel-dots"></div>
+      </div>
+
+      <!-- Autoplay progress bar -->
+      <div class="mt-3 max-w-xs mx-auto">
+        <div class="h-0.5 bg-cream rounded-full overflow-hidden">
+          <div class="carousel-progress-bar h-full bg-gold/60 rounded-full" id="carousel-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10 fade-in-up">
+      <a href="{% url 'store:review_list' %}" class="inline-flex items-center text-teal hover:text-gold font-semibold text-sm tracking-wider uppercase transition-colors duration-300 gap-2">
+        Read All Reviews
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Media & Connect Section -->
+<section class="py-16 md:py-24 bg-cream-light" id="connect">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 fade-in-up">
+      <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Stay Connected</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-4">Find Me Online</h2>
+      <div class="section-divider mb-6"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@krysteneduma" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-lg p-8 shadow-sm hover:shadow-md border border-cream hover:border-gold/30 transition-all duration-300 text-center fade-in-up">
+        <svg class="w-12 h-12 mx-auto text-teal group-hover:text-gold transition-colors mb-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.9 31.9 0 0 0 24 12a31.9 31.9 0 0 0-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+        </svg>
+        <h3 class="font-heading text-xl font-semibold text-teal group-hover:text-gold transition-colors mb-2">YouTube Live-Stream</h3>
+        <p class="text-near-black/60 text-sm">Weekly live sessions & teachings</p>
+      </a>
+
+      <!-- Podcast -->
+      <div class="bg-white rounded-lg p-8 shadow-sm border border-cream text-center fade-in-up" style="transition-delay: 100ms;">
+        <svg class="w-12 h-12 mx-auto text-teal mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+        </svg>
+        <h3 class="font-heading text-xl font-semibold text-teal mb-2">Podcast</h3>
+        <p class="text-near-black/60 text-sm">Available on your favorite streaming network</p>
+      </div>
+
+      <!-- 12listen -->
+      <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-lg p-8 shadow-sm hover:shadow-md border border-cream hover:border-gold/30 transition-all duration-300 text-center fade-in-up" style="transition-delay: 200ms;">
+        <svg class="w-12 h-12 mx-auto text-teal group-hover:text-gold transition-colors mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        </svg>
+        <h3 class="font-heading text-xl font-semibold text-teal group-hover:text-gold transition-colors mb-2">12listen.com</h3>
+        <p class="text-near-black/60 text-sm">Book intuitive sessions online</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 md:py-24 bg-teal relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(196,162,101,0.1)_0%,_transparent_70%)]"></div>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10 fade-in-up">
+    <h2 class="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">Begin Your Healing Journey</h2>
+    <p class="text-cream/80 text-lg mb-8 leading-relaxed">
+      Schedule a remote healing session — available in person or via Zoom. Take the first step toward reconnecting with your unique Quantum Blueprint.
+    </p>
+    <a href="{% url 'main:contact' %}" class="inline-block bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/25">
+      Schedule a Session
+    </a>
+  </div>
+</section>
+{% endblock %}
