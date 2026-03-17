@@ -6,28 +6,47 @@
 
 {% block content %}
 <!-- Page Header -->
-<section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-teal to-teal-dark">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+<section class="pt-32 pb-20 md:pt-40 md:pb-24 relative overflow-hidden" id="about-hero">
+  <div class="absolute inset-0 hero-gradient"></div>
+  <div class="absolute inset-0 hero-radial"></div>
+  <!-- Orbs -->
+  <div class="hero-orb hero-orb-1" style="width:350px;height:350px;top:-10%;right:5%;left:auto;"></div>
+  <div class="hero-orb hero-orb-2" style="width:300px;height:300px;bottom:-5%;left:0%;right:auto;"></div>
+  <!-- Sacred geometry -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <svg class="hero-geometry w-[400px] h-[400px] opacity-0" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="150" stroke="rgba(196,162,101,0.07)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="100" stroke="rgba(196,162,101,0.05)" stroke-width="0.5"/>
+      <polygon points="200,80 320,280 80,280" stroke="rgba(196,162,101,0.06)" stroke-width="0.5" fill="none"/>
+      <polygon points="200,320 80,120 320,120" stroke="rgba(196,162,101,0.06)" stroke-width="0.5" fill="none"/>
+    </svg>
+  </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
     <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4 fade-in-up">About</p>
-    <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 fade-in-up" style="transition-delay: 0.1s;">Krystene Du Maurier</h1>
-    <div class="section-divider mb-6 fade-in-up" style="transition-delay: 0.2s;"></div>
-    <p class="text-cream/80 text-lg max-w-2xl mx-auto fade-in-up" style="transition-delay: 0.3s;">
+    <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 fade-in-up">Krystene Du Maurier</h1>
+    <div class="hero-divider-animated mx-auto mb-6 fade-in-up"></div>
+    <p class="text-cream/80 text-lg max-w-2xl mx-auto fade-in-up">
       Energy healer, intuitive channel, musician, author, teacher & numerologist
     </p>
   </div>
 </section>
 
 <!-- Philosophy Section -->
-<section class="py-16 md:py-24 bg-warm">
+<section class="py-16 md:py-24 bg-warm relative overflow-hidden">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="fade-in-up">
       <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">My Philosophy</p>
       <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-6">Reconnecting with Your Divine Nature</h2>
       <div class="section-divider !mx-0 mb-8"></div>
-      <p class="text-near-black/80 text-lg leading-relaxed mb-6">
-        I deeply believe every individual holds a natural ability to transform their inner world and rediscover their Divine nature, joyfully expressed through the wonder of being human.
+    </div>
+    <!-- Pull quote -->
+    <blockquote class="fade-in-up relative my-10 pl-6 border-l-2 border-gold">
+      <p class="font-heading text-xl md:text-2xl text-teal/90 italic leading-relaxed">
+        "Every individual holds a natural ability to transform their inner world and rediscover their Divine nature, joyfully expressed through the wonder of being human."
       </p>
-      <p class="text-near-black/80 leading-relaxed">
+    </blockquote>
+    <div class="fade-in-up">
+      <p class="text-near-black/80 text-lg leading-relaxed">
         In my remote healing practice, I am able to access and release emotional, mental and physical tension points in the body and auric field, providing a safe space to explore this connection with clarity, compassion and a tremendous amount of unconditional love.
       </p>
     </div>
@@ -41,13 +60,44 @@
       <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">My Background</p>
       <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-6">A Foundation in Sound & Science</h2>
       <div class="section-divider !mx-0 mb-8"></div>
-      <p class="text-near-black/80 leading-relaxed mb-6">
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <div class="fade-in-up bg-white rounded-xl p-6 border border-cream shadow-sm text-center">
+        <div class="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-lg font-semibold text-teal mb-1">Classical Music</h3>
+        <p class="text-near-black/60 text-sm">Foundation of heightened awareness</p>
+      </div>
+      <div class="fade-in-up bg-white rounded-xl p-6 border border-cream shadow-sm text-center">
+        <div class="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-lg font-semibold text-teal mb-1">Quantum Science</h3>
+        <p class="text-near-black/60 text-sm">Neuroscience & energy research</p>
+      </div>
+      <div class="fade-in-up bg-white rounded-xl p-6 border border-cream shadow-sm text-center">
+        <div class="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-lg font-semibold text-teal mb-1">Mediumship</h3>
+        <p class="text-near-black/60 text-sm">Clairvoyance & intuitive arts</p>
+      </div>
+    </div>
+    <div class="fade-in-up space-y-4 text-near-black/80 leading-relaxed">
+      <p>
         My foundation in classical music has served as a springboard for cultivating my heightened sixth sense, allowing it to flourish and remain a central element of my awareness.
       </p>
-      <p class="text-near-black/80 leading-relaxed mb-6">
+      <p>
         Over the years, my exploration and research have extended into the realms of quantum science, neuroscience, mediumship, and clairvoyance. This journey has fueled my ongoing commitment to educate and weave together the understanding that, as human beings, we are fundamentally composed of light and sound vibrations, each contributing to the shared energetic field that connects us all.
       </p>
-      <p class="text-near-black/80 leading-relaxed">
+      <p>
         As co-founder of Kryschendo, a platform dedicated to the dynamic intersection of energy and matter, I guide individuals in reconnecting with their unique Quantum Blueprint, empowering deeper self-awareness, personal growth and creative purpose.
       </p>
     </div>
@@ -65,56 +115,50 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Healing Sessions -->
-      <div class="bg-white rounded-lg p-8 shadow-sm border border-cream fade-in-up">
-        <h3 class="font-heading text-xl font-semibold text-teal mb-4">In-Person & Remote Healing</h3>
+      <div class="group bg-white rounded-xl p-8 shadow-sm border border-cream hover:border-gold/30 hover:shadow-md transition-all duration-300 fade-in-up relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+        <div class="w-12 h-12 bg-teal/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-gold/10 transition-colors duration-300">
+          <svg class="w-6 h-6 text-teal group-hover:text-gold transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-semibold text-teal mb-5">In-Person & Remote Healing</h3>
         <ul class="space-y-3 text-near-black/80 text-sm">
+          {% for item in "12345" %}
           <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Decompression and regulation of the physical body
+            <span class="text-gold mt-0.5 flex-shrink-0">&#9670;</span>
+            {% if forloop.counter == 1 %}Decompression and regulation of the physical body
+            {% elif forloop.counter == 2 %}Sensory nervous system and meridian systems
+            {% elif forloop.counter == 3 %}Emotional and mental field clearing
+            {% elif forloop.counter == 4 %}Auric field surrounding the physical body
+            {% elif forloop.counter == 5 %}Chakra system balancing
+            {% endif %}
           </li>
-          <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Sensory nervous system and meridian systems
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Emotional and mental field clearing
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Auric field surrounding the physical body
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Chakra system balancing
-          </li>
+          {% endfor %}
         </ul>
       </div>
 
       <!-- Educational -->
-      <div class="bg-white rounded-lg p-8 shadow-sm border border-cream fade-in-up" style="transition-delay: 100ms;">
-        <h3 class="font-heading text-xl font-semibold text-teal mb-4">6th Sense Educational Forums</h3>
+      <div class="group bg-white rounded-xl p-8 shadow-sm border border-cream hover:border-gold/30 hover:shadow-md transition-all duration-300 fade-in-up relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+        <div class="w-12 h-12 bg-teal/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-gold/10 transition-colors duration-300">
+          <svg class="w-6 h-6 text-teal group-hover:text-gold transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-semibold text-teal mb-5">6th Sense Educational Forums</h3>
         <ul class="space-y-3 text-near-black/80 text-sm">
+          {% for item in "12345" %}
           <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Mindfulness and meditation practices
+            <span class="text-gold mt-0.5 flex-shrink-0">&#9670;</span>
+            {% if forloop.counter == 1 %}Mindfulness and meditation practices
+            {% elif forloop.counter == 2 %}Breathwork & kundalini activation
+            {% elif forloop.counter == 3 %}Remote healing techniques
+            {% elif forloop.counter == 4 %}Clairvoyance and the intuitive arts
+            {% elif forloop.counter == 5 %}Community transformation support
+            {% endif %}
           </li>
-          <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Breathwork & kundalini activation
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Remote healing techniques
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Clairvoyance and the intuitive arts
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-gold mt-1">&#9670;</span>
-            Community transformation support
-          </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -122,14 +166,20 @@
 </section>
 
 <!-- CTA -->
-<section class="py-16 md:py-20 bg-teal">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center fade-in-up">
-    <h2 class="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">Ready to Begin?</h2>
-    <p class="text-cream/80 text-lg mb-8">
-      Schedule a remote healing session — available in person or via Zoom.
+<section class="py-20 md:py-32 bg-warm relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(45,90,90,0.06)_0%,_transparent_70%)]"></div>
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10 fade-in-up">
+    <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Take the First Step</p>
+    <h2 class="font-heading text-3xl md:text-5xl font-semibold text-teal mb-6 leading-tight">Ready to Begin?</h2>
+    <div class="section-divider mb-8"></div>
+    <p class="text-near-black/70 text-lg mb-10 leading-relaxed max-w-xl mx-auto">
+      Schedule a remote healing session — available in person or via Zoom. Reconnect with your unique Quantum Blueprint.
     </p>
-    <a href="{% url 'main:contact' %}" class="inline-block bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/25">
+    <a href="{% url 'main:contact' %}" class="group inline-flex items-center gap-3 bg-teal hover:bg-teal/90 text-white px-10 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-xl hover:shadow-teal/20 hover:-translate-y-0.5">
       Schedule a Session
+      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
     </a>
   </div>
 </section>

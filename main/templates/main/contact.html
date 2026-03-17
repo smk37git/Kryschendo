@@ -6,12 +6,23 @@
 
 {% block content %}
 <!-- Page Header -->
-<section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-teal to-teal-dark">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+<section class="pt-32 pb-20 md:pt-40 md:pb-24 relative overflow-hidden">
+  <div class="absolute inset-0 hero-gradient"></div>
+  <div class="absolute inset-0 hero-radial"></div>
+  <div class="hero-orb hero-orb-1" style="width:300px;height:300px;top:-5%;left:5%;"></div>
+  <div class="hero-orb hero-orb-2" style="width:350px;height:350px;bottom:-10%;right:0%;"></div>
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <svg class="hero-geometry w-[350px] h-[350px] opacity-0" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="150" stroke="rgba(196,162,101,0.07)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="90" stroke="rgba(196,162,101,0.05)" stroke-width="0.5"/>
+      <polygon points="200,80 320,280 80,280" stroke="rgba(196,162,101,0.05)" stroke-width="0.5" fill="none"/>
+    </svg>
+  </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
     <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4 fade-in-up">Get in Touch</p>
-    <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 fade-in-up" style="transition-delay: 0.1s;">Connect with Krystene</h1>
-    <div class="section-divider mb-6 fade-in-up" style="transition-delay: 0.2s;"></div>
-    <p class="text-cream/80 text-lg max-w-2xl mx-auto fade-in-up" style="transition-delay: 0.3s;">
+    <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 fade-in-up">Connect with Krystene</h1>
+    <div class="hero-divider-animated mx-auto mb-6 fade-in-up"></div>
+    <p class="text-cream/80 text-lg max-w-2xl mx-auto fade-in-up">
       Schedule a remote healing session — available in person or via Zoom
     </p>
   </div>
@@ -21,93 +32,106 @@
 <section class="py-16 md:py-24 bg-warm">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
       <!-- Contact Info -->
       <div class="fade-in-up">
         <h2 class="font-heading text-2xl font-semibold text-teal mb-6">Ways to Connect</h2>
         <div class="section-divider !mx-0 mb-8"></div>
 
-        <div class="space-y-6">
+        <div class="space-y-5">
           <!-- Email -->
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 bg-teal/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <a href="mailto:kdl9621@hotmail.com" class="group flex items-start gap-4 p-4 rounded-xl bg-white border border-cream hover:border-gold/30 hover:shadow-md transition-all duration-300">
+            <div class="w-11 h-11 bg-teal/10 group-hover:bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+              <svg class="w-5 h-5 text-teal group-hover:text-gold transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
             </div>
             <div>
-              <h3 class="font-semibold text-near-black mb-1">Email</h3>
-              <a href="mailto:kdl9621@hotmail.com" class="text-teal hover:text-gold transition-colors">kdl9621@hotmail.com</a>
+              <h3 class="font-semibold text-near-black mb-0.5">Email</h3>
+              <p class="text-teal group-hover:text-gold transition-colors duration-300 text-sm">kdl9621@hotmail.com</p>
             </div>
-          </div>
+          </a>
 
           <!-- Location -->
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 bg-teal/10 rounded-full flex items-center justify-center flex-shrink-0">
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-cream">
+            <div class="w-11 h-11 bg-teal/10 rounded-xl flex items-center justify-center flex-shrink-0">
               <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
             </div>
             <div>
-              <h3 class="font-semibold text-near-black mb-1">Location</h3>
-              <p class="text-near-black/70">Seattle, WA</p>
-              <p class="text-near-black/60 text-sm">In-person and remote sessions available</p>
+              <h3 class="font-semibold text-near-black mb-0.5">Location</h3>
+              <p class="text-near-black/70 text-sm">Seattle, WA</p>
+              <p class="text-near-black/50 text-xs mt-0.5">In-person and remote sessions available</p>
             </div>
           </div>
 
           <!-- Session Types -->
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 bg-teal/10 rounded-full flex items-center justify-center flex-shrink-0">
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-cream">
+            <div class="w-11 h-11 bg-teal/10 rounded-xl flex items-center justify-center flex-shrink-0">
               <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
               </svg>
             </div>
             <div>
               <h3 class="font-semibold text-near-black mb-1">Session Options</h3>
-              <p class="text-near-black/70">Remote healing via Zoom</p>
-              <p class="text-near-black/70">In-person sessions in Seattle</p>
-              <p class="text-near-black/70">Phone consultations</p>
+              <ul class="space-y-1 text-near-black/70 text-sm">
+                <li class="flex items-center gap-2"><span class="text-gold text-xs">&#9670;</span> Remote healing via Zoom</li>
+                <li class="flex items-center gap-2"><span class="text-gold text-xs">&#9670;</span> In-person sessions in Seattle</li>
+                <li class="flex items-center gap-2"><span class="text-gold text-xs">&#9670;</span> Phone consultations</li>
+              </ul>
             </div>
           </div>
 
           <!-- 12listen -->
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 bg-teal/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-4 p-4 rounded-xl bg-white border border-cream hover:border-gold/30 hover:shadow-md transition-all duration-300">
+            <div class="w-11 h-11 bg-teal/10 group-hover:bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+              <svg class="w-5 h-5 text-teal group-hover:text-gold transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
             </div>
             <div>
-              <h3 class="font-semibold text-near-black mb-1">Book Online</h3>
-              <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-gold transition-colors">Schedule via 12listen.com</a>
+              <h3 class="font-semibold text-near-black mb-0.5">Book Online</h3>
+              <p class="text-teal group-hover:text-gold transition-colors duration-300 text-sm">Schedule via 12listen.com</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Booking CTA -->
+      <div class="fade-in-up">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-cream relative overflow-hidden">
+          <!-- Gold top accent -->
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+          <h2 class="font-heading text-2xl font-semibold text-teal mb-3">Schedule a Session</h2>
+          <p class="text-near-black/60 text-sm mb-7 leading-relaxed">
+            Reach out to book your healing session or ask any questions. Krystene welcomes all inquiries with warmth and compassion.
+          </p>
+
+          <div class="space-y-3">
+            <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer"
+               class="group flex items-center justify-center gap-2 w-full bg-teal hover:bg-teal/90 text-white px-6 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:shadow-teal/20 hover:-translate-y-0.5">
+              Book on 12listen.com
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="mailto:kdl9621@hotmail.com"
+               class="group flex items-center justify-center gap-2 w-full bg-gold hover:bg-gold-dark text-white px-6 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5">
+              Send an Email
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </a>
+          </div>
+
+          <!-- Click4Advisor placeholder -->
+          <div id="click4advisor-widget" class="mt-5">
+            <div class="flex items-center gap-2 justify-center py-3 px-4 rounded-lg border border-dashed border-gold/30 bg-cream-light/50">
+              <svg class="w-4 h-4 text-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <p class="text-near-black/40 text-xs tracking-wide uppercase font-medium">Live booking widget coming soon</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Contact Form / Booking CTA -->
-      <div class="fade-in-up" style="transition-delay: 200ms;">
-        <div class="bg-white rounded-lg p-8 shadow-sm border border-cream">
-          <h2 class="font-heading text-2xl font-semibold text-teal mb-4">Schedule a Session</h2>
-          <p class="text-near-black/70 text-sm mb-6">
-            Reach out to book your healing session or ask any questions. Krystene welcomes all inquiries with warmth and compassion.
-          </p>
-
-          <div class="space-y-4">
-            <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer" class="block w-full bg-teal hover:bg-teal-dark text-white px-6 py-4 rounded-md font-semibold tracking-wider uppercase text-sm text-center transition-colors duration-300">
-              Book on 12listen.com
-            </a>
-            <a href="mailto:kdl9621@hotmail.com" class="block w-full bg-gold hover:bg-gold-dark text-white px-6 py-4 rounded-md font-semibold tracking-wider uppercase text-sm text-center transition-colors duration-300">
-              Send an Email
-            </a>
-          </div>
-
-          <!-- Click4Advisor placeholder -->
-          <div id="click4advisor-widget" class="mt-6 p-4 bg-cream-light rounded-md text-center">
-            <p class="text-near-black/50 text-sm italic">Click4Advisor booking widget coming soon</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
