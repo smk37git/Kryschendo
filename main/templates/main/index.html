@@ -204,55 +204,103 @@
 {% endif %}
 
 <!-- Media & Connect Section -->
-<section class="py-16 md:py-24 bg-cream-light" id="connect">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-16 md:py-24 bg-teal relative overflow-hidden" id="connect">
+  <!-- Background depth layers -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,_rgba(196,162,101,0.08)_0%,_transparent_60%)]"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_20%,_rgba(232,213,183,0.05)_0%,_transparent_50%)]"></div>
+  <!-- Subtle grid -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_50%,black_40%,transparent_100%)]"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center mb-12 fade-in-up">
       <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Stay Connected</p>
-      <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-4">Find Me Online</h2>
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold text-white mb-4">Find Me Online</h2>
       <div class="section-divider mb-6"></div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- YouTube -->
-      <a href="https://www.youtube.com/@krysteneduma" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-lg p-8 shadow-sm hover:shadow-md border border-cream hover:border-gold/30 transition-all duration-300 text-center fade-in-up">
-        <svg class="w-12 h-12 mx-auto text-teal group-hover:text-gold transition-colors mb-4" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.9 31.9 0 0 0 24 12a31.9 31.9 0 0 0-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/>
-        </svg>
-        <h3 class="font-heading text-xl font-semibold text-teal group-hover:text-gold transition-colors mb-2">YouTube Live-Stream</h3>
-        <p class="text-near-black/60 text-sm">Weekly live sessions & teachings</p>
+      <a href="https://www.youtube.com/@krysteneduma" target="_blank" rel="noopener noreferrer"
+         class="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-gold/40 transition-all duration-500 text-center fade-in-up overflow-hidden hover:scale-[1.02] hover:shadow-2xl">
+        <!-- Glow on hover -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+             style="background: radial-gradient(circle at 50% 50%, rgba(196,162,101,0.12), transparent 70%);"></div>
+        <!-- Shimmer sweep -->
+        <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+        <div class="relative z-10">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-white/10 group-hover:bg-gold/20 flex items-center justify-center transition-colors duration-300">
+            <svg class="w-8 h-8 text-white/70 group-hover:text-gold transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.9 31.9 0 0 0 24 12a31.9 31.9 0 0 0-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300 mb-2">YouTube Live-Stream</h3>
+          <p class="text-white/50 text-sm mb-4">Weekly live sessions & teachings</p>
+          <span class="inline-flex items-center gap-1 text-gold/60 group-hover:text-gold text-xs font-semibold tracking-wider uppercase transition-colors duration-300">
+            Watch Now
+            <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </div>
       </a>
 
       <!-- Podcast -->
-      <div class="bg-white rounded-lg p-8 shadow-sm border border-cream text-center fade-in-up" style="transition-delay: 100ms;">
-        <svg class="w-12 h-12 mx-auto text-teal mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
-        </svg>
-        <h3 class="font-heading text-xl font-semibold text-teal mb-2">Podcast</h3>
-        <p class="text-near-black/60 text-sm">Available on your favorite streaming network</p>
+      <div class="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 transition-all duration-500 text-center fade-in-up overflow-hidden">
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+             style="background: radial-gradient(circle at 50% 50%, rgba(196,162,101,0.08), transparent 70%);"></div>
+        <div class="relative z-10">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-white/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-semibold text-white mb-2">Podcast</h3>
+          <p class="text-white/50 text-sm mb-4">Available on your favorite streaming network</p>
+          <span class="inline-flex items-center gap-1 text-white/30 text-xs font-semibold tracking-wider uppercase">
+            Coming Soon
+          </span>
+        </div>
       </div>
 
       <!-- 12listen -->
-      <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-lg p-8 shadow-sm hover:shadow-md border border-cream hover:border-gold/30 transition-all duration-300 text-center fade-in-up" style="transition-delay: 200ms;">
-        <svg class="w-12 h-12 mx-auto text-teal group-hover:text-gold transition-colors mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-        </svg>
-        <h3 class="font-heading text-xl font-semibold text-teal group-hover:text-gold transition-colors mb-2">12listen.com</h3>
-        <p class="text-near-black/60 text-sm">Book intuitive sessions online</p>
+      <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer"
+         class="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-gold/40 transition-all duration-500 text-center fade-in-up overflow-hidden hover:scale-[1.02] hover:shadow-2xl">
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+             style="background: radial-gradient(circle at 50% 50%, rgba(196,162,101,0.12), transparent 70%);"></div>
+        <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+        <div class="relative z-10">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-white/10 group-hover:bg-gold/20 flex items-center justify-center transition-colors duration-300">
+            <svg class="w-8 h-8 text-white/70 group-hover:text-gold transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300 mb-2">12listen.com</h3>
+          <p class="text-white/50 text-sm mb-4">Book intuitive sessions online</p>
+          <span class="inline-flex items-center gap-1 text-gold/60 group-hover:text-gold text-xs font-semibold tracking-wider uppercase transition-colors duration-300">
+            Book Now
+            <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </div>
       </a>
     </div>
   </div>
 </section>
 
 <!-- CTA Section -->
-<section class="py-16 md:py-24 bg-teal relative overflow-hidden">
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(196,162,101,0.1)_0%,_transparent_70%)]"></div>
+<section class="py-20 md:py-32 bg-warm relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(45,90,90,0.06)_0%,_transparent_70%)]"></div>
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+
   <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10 fade-in-up">
-    <h2 class="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">Begin Your Healing Journey</h2>
-    <p class="text-cream/80 text-lg mb-8 leading-relaxed">
-      Schedule a remote healing session — available in person or via Zoom. Take the first step toward reconnecting with your unique Quantum Blueprint.
+    <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Take the First Step</p>
+    <h2 class="font-heading text-3xl md:text-5xl font-semibold text-teal mb-6 leading-tight">Begin Your<br>Healing Journey</h2>
+    <div class="section-divider mb-8"></div>
+    <p class="text-near-black/70 text-lg mb-10 leading-relaxed max-w-xl mx-auto">
+      Schedule a remote healing session — available in person or via Zoom. Reconnect with your unique Quantum Blueprint.
     </p>
-    <a href="{% url 'main:contact' %}" class="inline-block bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/25">
+    <a href="{% url 'main:contact' %}" class="group inline-flex items-center gap-3 bg-teal hover:bg-teal/90 text-white px-10 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-xl hover:shadow-teal/20 hover:-translate-y-0.5">
       Schedule a Session
+      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
     </a>
   </div>
 </section>
