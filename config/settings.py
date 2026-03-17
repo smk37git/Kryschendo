@@ -112,3 +112,40 @@ else:
     MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# ---------------------------------------------------------------------------
+# Security hardening
+# ---------------------------------------------------------------------------
+
+# HTTPS / proxy — Cloud Run terminates TLS at the load balancer and forwards
+# X-Forwarded-Proto: https. Trust that header so Django considers the request
+# secure. Do NOT set SECURE_SSL_REDIRECT on Cloud Run (causes redirect loops).
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")  # security: Cloud Run proxy
+
+# HSTS — tell browsers to use HTTPS for 1 year, including subdomains, and
+# submit to the preload list. Only applied when DEBUG=False.
+SECURE_HSTS_SECONDS = 31536000  # security: 1 year HSTS
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Cookie security — cookies must only be sent over HTTPS in production.
+# These are ignored in development when DEBUG=True (Django behaviour).
+SESSION_COOKIE_SECURE = True  # security: HTTPS-only session cookie
+CSRF_COOKIE_SECURE = True     # security: HTTPS-only CSRF cookie
+SESSION_COOKIE_HTTPONLY = True  # security: JS cannot read session cookie
+CSRF_COOKIE_HTTPONLY = True     # security: JS cannot read CSRF cookie
+
+# Clickjacking — deny embedding in iframes from other origins.
+# SecurityMiddleware already sets this via XFrameOptionsMiddleware,
+# but the setting must be explicitly declared to override Django's default 'SAMEORIGIN'.
+X_FRAME_OPTIONS = "DENY"  # security: block iframe embedding
+
+# Content-type sniffing — instruct browsers not to guess MIME types.
+SECURE_CONTENT_TYPE_NOSNIFF = True  # security: X-Content-Type-Options: nosniff
+
+# Legacy XSS filter header — harmless on modern browsers, defence-in-depth.
+SECURE_BROWSER_XSS_FILTER = True  # security: X-XSS-Protection: 1; mode=block
+
+# Referrer policy — send origin only on same-site requests; send only origin
+# to cross-origin HTTPS destinations; send nothing to HTTP destinations.
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"  # security: limit referrer leakage

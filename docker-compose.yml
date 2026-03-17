@@ -19,7 +19,7 @@ services:
     environment:
       POSTGRES_DB: kryschendo
       POSTGRES_USER: kryschendo_user
-      POSTGRES_PASSWORD: localdevpassword
+      POSTGRES_PASSWORD: localdevpassword  # local dev only — never used in production
     ports:
       - "5432:5432"
     healthcheck:

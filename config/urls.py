@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("kry-admin/", admin.site.urls),  # security: non-default admin URL reduces automated brute-force
     path("", include("main.urls")),
     path("services/", include("store.urls")),
 ]
