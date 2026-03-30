@@ -2,7 +2,65 @@
 {% load static %}
 
 {% block title %}Reviews — Kryschendo{% endblock %}
-{% block meta_description %}Read testimonials from Krystene Du Maurier's healing clients. Remote and in-person energy clearing reviews.{% endblock %}
+{% block meta_description %}Read testimonials from Krystene Du Maurier's healing clients. Kundalini transmissions, soul clearings, and intuitive session reviews.{% endblock %}
+
+{% block extra_head %}
+<style>
+  .review-card {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(45, 90, 90, 0.1);
+  }
+  .review-quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1;
+    user-select: none;
+  }
+  /* Masonry via CSS columns */
+  .review-masonry {
+    column-count: 1;
+    column-gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .review-masonry {
+      column-count: 2;
+    }
+  }
+  @media (min-width: 1024px) {
+    .review-masonry {
+      column-count: 3;
+    }
+  }
+  .review-masonry > .review-card {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+  }
+  /* Featured pull-quote */
+  .review-featured {
+    border-left: 3px solid #C4A265;
+    background: linear-gradient(135deg, rgba(232, 213, 183, 0.15) 0%, rgba(250, 250, 247, 0.5) 100%);
+  }
+  /* Gold accent dot */
+  .review-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C4A265;
+    display: inline-block;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .review-card {
+      transition: none;
+    }
+    .review-card:hover {
+      transform: none;
+    }
+  }
+</style>
+{% endblock %}
 
 {% block content %}
 <!-- Page Header -->
@@ -17,24 +75,54 @@
   </div>
 </section>
 
-<!-- Reviews Grid -->
+<!-- Healing Reviews -->
 <section class="py-16 md:py-24 bg-warm">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    {% if reviews %}
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {% for review in reviews %}
-      <div class="bg-white rounded-lg p-6 md:p-8 shadow-sm border border-cream hover:border-gold/20 transition-all duration-300 fade-in-up">
-        <div class="star-rating text-sm mb-4">
-          {% for i in "12345" %}
-            {% if forloop.counter <= review.rating %}&#9733;{% else %}&#9734;{% endif %}
-          {% endfor %}
+    <div class="text-center mb-14 fade-in-up">
+      <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Healing Sessions</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-4">Kundalini Transmissions, Soul Clearings & Intuitive Sessions</h2>
+      <div class="section-divider mb-0"></div>
+    </div>
+    {% if healing_reviews %}
+    <div class="review-masonry">
+      {% for review in healing_reviews %}
+      <div class="review-card rounded-xl p-6 md:p-8 bg-white border border-cream/60 fade-in-up {% if review.body|length < 150 %}review-featured{% endif %}">
+        <div class="review-quote-mark text-5xl text-gold/30 -mb-2">&ldquo;</div>
+        <p class="text-near-black/75 text-[0.95rem] leading-relaxed {% if review.body|length < 150 %}font-heading text-lg md:text-xl text-near-black/85 italic leading-relaxed{% endif %}">{{ review.body }}</p>
+        <div class="mt-5 flex items-center gap-2">
+          <span class="review-dot"></span>
+          <span class="review-dot" style="opacity: 0.6;"></span>
+          <span class="review-dot" style="opacity: 0.3;"></span>
         </div>
-        <p class="text-near-black/80 text-sm leading-relaxed italic mb-4">"{{ review.body }}"</p>
-        <div class="flex items-center gap-3 pt-4 border-t border-cream">
-          <div class="w-8 h-8 bg-teal/10 rounded-full flex items-center justify-center">
-            <span class="text-teal font-semibold text-xs">{{ review.author_name|first }}</span>
-          </div>
-          <p class="text-teal font-semibold text-sm">{{ review.author_name }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-12">
+      <p class="text-near-black/60 text-lg">Reviews coming soon.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Intuitive Reviews -->
+<section class="py-16 md:py-24 bg-cream-light">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 fade-in-up">
+      <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Readings & Guidance</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-4">Intuitive Session Reviews</h2>
+      <div class="section-divider mb-0"></div>
+    </div>
+    {% if intuitive_reviews %}
+    <div class="review-masonry">
+      {% for review in intuitive_reviews %}
+      <div class="review-card rounded-xl p-6 md:p-8 bg-white border border-cream/60 fade-in-up {% if review.body|length < 150 %}review-featured{% endif %}">
+        <div class="review-quote-mark text-5xl text-gold/30 -mb-2">&ldquo;</div>
+        <p class="text-near-black/75 text-[0.95rem] leading-relaxed {% if review.body|length < 150 %}font-heading text-lg md:text-xl text-near-black/85 italic leading-relaxed{% endif %}">{{ review.body }}</p>
+        <div class="mt-5 flex items-center gap-2">
+          <span class="review-dot"></span>
+          <span class="review-dot" style="opacity: 0.6;"></span>
+          <span class="review-dot" style="opacity: 0.3;"></span>
         </div>
       </div>
       {% endfor %}

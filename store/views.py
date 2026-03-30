@@ -20,6 +20,7 @@ def service_detail(request, slug):
 
 def review_list(request):
     context = {
-        "reviews": Review.objects.filter(is_approved=True),
+        "healing_reviews": Review.objects.filter(is_approved=True, category="healing"),
+        "intuitive_reviews": Review.objects.filter(is_approved=True, category="intuitive"),
     }
     return render(request, "store/review_list.html", context)

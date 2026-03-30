@@ -20,7 +20,7 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ["author_name", "rating", "service", "is_approved", "is_featured", "order"]
+    list_display = ["author_name", "category", "rating", "service", "is_approved", "is_featured", "order"]
     list_editable = ["is_approved", "is_featured", "order"]
-    list_filter = ["is_approved", "is_featured", "rating"]
+    list_filter = ["is_approved", "is_featured", "rating", "category"]
     search_fields = ["author_name", "body"]

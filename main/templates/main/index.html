@@ -41,11 +41,11 @@
   <!-- Hero content with staggered text reveal -->
   <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
     <p class="hero-reveal text-gold font-body text-xs sm:text-sm md:text-base tracking-[0.3em] uppercase mb-3 sm:mb-6" data-delay="0">Remote Healing, Mediumship &amp; Psychic Guidance</p>
-    <h1 class="font-heading text-[2.25rem] sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white mb-3 sm:mb-6">
+    <h1 class="font-heading text-[1.85rem] sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white mb-3 sm:mb-6">
       <span class="hero-reveal-char" data-text="Krystene Du Maurier"></span>
     </h1>
     <div class="hero-reveal hero-divider-animated mx-auto mb-4 sm:mb-8" data-delay="800"></div>
-    <p class="hero-reveal text-cream/90 font-body text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed" data-delay="1000">
+    <p class="hero-reveal text-cream/90 font-body text-[0.9rem] sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed" data-delay="1000">
       Reconnect with your unique Quantum Blueprint. Experience the dynamic intersection of energy and matter through healing, guidance, and transformation.
     </p>
     <div class="hero-reveal flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center" data-delay="1200">
@@ -73,7 +73,7 @@
       <!-- Portrait -->
       <div class="fade-in-up flex justify-center">
         <div class="aspect-[4/5] max-w-sm w-full rounded-2xl overflow-hidden shadow-xl">
-          <img src="{% static 'main/images/krysten_headshot.jfif' %}" alt="Krystene Du Maurier — energy healer and intuitive channel" class="w-full h-full object-cover object-center">
+          <img src="{% static 'main/images/krystene_headshot.jpeg' %}" alt="Krystene Du Maurier — energy healer and intuitive channel" class="w-full h-full object-cover object-center">
         </div>
       </div>
 
@@ -83,16 +83,28 @@
         <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-6">A Journey of Healing & Discovery</h2>
         <div class="section-divider !mx-0 mb-6"></div>
         <p class="text-near-black/80 leading-relaxed mb-4">
-          Krystene Du Maurier is a remote healer, cross-over medium, and psychic intuitive renowned for her expertise in Kundalini Energy Transmission, spirit rescue facilitation, and clairvoyant guidance.
+          Krystene Du Maurier is a remote healer, cross-over medium, and psychic intuitive renowned for her expertise in Kundalini Energy Transmission, spirit rescue facilitation, and clairvoyant guidance. Drawing on decades of experience, she empowers individuals on their spiritual awakening and transformative journeys through remote and in-person sessions, channeling universal energy to promote deep healing, clarity, and personal growth.
         </p>
-        <p class="text-near-black/80 leading-relaxed mb-6">
-          Drawing on decades of experience, she empowers individuals on their spiritual awakening and transformative journeys through remote and in-person sessions, channeling universal energy to promote deep healing, clarity, and personal growth.
+        <p class="text-near-black/80 leading-relaxed">
+          Krystene's compassionate approach supports clients in overcoming emotional, mental, and spiritual blockages, bridging the realms of the living and the spirit world with sensitivity and respect. Her unique blend of energy work, mediumship, and intuitive insight offers a safe, nurturing space for holistic well-being, spiritual advancement, and meaningful self-discovery.
         </p>
-        <a href="{% url 'main:about' %}" class="inline-flex items-center text-teal hover:text-gold font-semibold text-sm tracking-wider uppercase transition-colors duration-300 gap-2">
-          Read Full Bio
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Her Philosophy Section -->
+<section class="py-16 md:py-24 bg-cream-light relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="fade-in-up">
+      <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Her Philosophy</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-6">Reconnecting with Your Divine Nature</h2>
+      <div class="section-divider !mx-0 mb-8"></div>
+    </div>
+    <div class="fade-in-up space-y-4 text-near-black/80 text-lg leading-relaxed">
+      <p>
+        At the heart of Krystene Du Maurier's work lies a profound philosophy: the recognition that every soul's journey is a chapter in a cosmic tapestry of interwoven narratives — my story, your story, our collective story. She believes Divinity is not remote or abstract, but actively at play in human form and expression, revealing itself through our struggles, triumphs, and even the subtle moments of transformation. Krystene sees her role as a facilitator not only of healing but of awakening to the sacred interplay between the individual and the universal spirit and Source. By guiding others through their personal stories and connecting them to the collective threads of humanity, she invites clients to witness the unfolding dance of Divinity within themselves and each other — a process where healing, clarity, and growth become not just possibilities, but living realities. Through this creative approach, Krystene encourages each person to embrace their path as a sacred expression, trusting that the journey itself is Divine in its never-ending unfolding and becoming.
+      </p>
     </div>
   </div>
 </section>
@@ -127,75 +139,6 @@
     <div class="text-center mt-10 fade-in-up">
       <a href="{% url 'store:service_list' %}" class="inline-flex items-center text-teal hover:text-gold font-semibold text-sm tracking-wider uppercase transition-colors duration-300 gap-2">
         View All Services
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-{% endif %}
-
-<!-- Testimonials Section -->
-{% if reviews %}
-<section class="py-16 md:py-24 bg-warm overflow-hidden" id="testimonials">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12 fade-in-up">
-      <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Client Experiences</p>
-      <h2 class="font-heading text-3xl md:text-4xl font-semibold text-teal mb-4">Words of Transformation</h2>
-      <div class="section-divider mb-6"></div>
-    </div>
-
-    <div class="carousel-container relative" id="testimonial-carousel">
-      <div class="overflow-hidden rounded-lg">
-        <div class="testimonial-track" id="testimonial-track">
-          {% for review in reviews %}
-          <div class="testimonial-card" data-index="{{ forloop.counter0 }}">
-            <div class="testimonial-card-inner bg-white rounded-lg p-6 md:p-8 shadow-sm border border-cream hover:border-gold/30 mx-2 h-full flex flex-col transition-all duration-300 hover:shadow-md">
-              <!-- Quote icon -->
-              <svg class="w-8 h-8 text-gold/20 mb-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/>
-              </svg>
-              <div class="star-rating text-sm mb-3">
-                {% for i in "12345" %}
-                  {% if forloop.counter <= review.rating %}&#9733;{% else %}&#9734;{% endif %}
-                {% endfor %}
-              </div>
-              <p class="text-near-black/80 text-sm leading-relaxed flex-grow italic">"{{ review.body|truncatewords:50 }}"</p>
-              <div class="mt-4 pt-4 border-t border-cream flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
-                  <span class="text-teal font-semibold text-sm">{{ review.author_name|first }}</span>
-                </div>
-                <p class="text-teal font-semibold text-sm">{{ review.author_name }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-
-      <!-- Carousel Controls -->
-      <button id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 bg-white shadow-lg rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-teal hover:text-gold hover:shadow-xl transition-all duration-300 z-10 group" aria-label="Previous testimonial">
-        <svg class="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-      </button>
-      <button id="carousel-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 bg-white shadow-lg rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-teal hover:text-gold hover:shadow-xl transition-all duration-300 z-10 group" aria-label="Next testimonial">
-        <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      </button>
-
-      <!-- Progress indicator -->
-      <div class="flex items-center justify-center mt-8 gap-3" id="carousel-progress">
-        <div class="carousel-dots flex gap-2" id="carousel-dots"></div>
-      </div>
-
-      <!-- Autoplay progress bar -->
-      <div class="mt-3 max-w-xs mx-auto">
-        <div class="h-0.5 bg-cream rounded-full overflow-hidden">
-          <div class="carousel-progress-bar h-full bg-gold/60 rounded-full" id="carousel-progress-bar"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-10 fade-in-up">
-      <a href="{% url 'store:review_list' %}" class="inline-flex items-center text-teal hover:text-gold font-semibold text-sm tracking-wider uppercase transition-colors duration-300 gap-2">
-        Read All Reviews
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
     </div>

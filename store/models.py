@@ -42,12 +42,20 @@ class Service(models.Model):
 
 
 class Review(models.Model):
+    CATEGORY_CHOICES = [
+        ("healing", "Kundalini Transmissions, Soul Clearings & Intuitive Sessions"),
+        ("intuitive", "Intuitive Session Reviews"),
+    ]
+
     service = models.ForeignKey(
         Service,
         on_delete=models.CASCADE,
         related_name="reviews",
         null=True,
         blank=True,
+    )
+    category = models.CharField(
+        max_length=20, choices=CATEGORY_CHOICES, default="healing", blank=True
     )
     author_name = models.CharField(max_length=100)
     rating = models.PositiveSmallIntegerField(
