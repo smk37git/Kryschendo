@@ -96,7 +96,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 
@@ -149,3 +149,32 @@ SECURE_BROWSER_XSS_FILTER = True  # security: X-XSS-Protection: 1; mode=block
 # Referrer policy — send origin only on same-site requests; send only origin
 # to cross-origin HTTPS destinations; send nothing to HTTP destinations.
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"  # security: limit referrer leakage
+
+# ---------------------------------------------------------------------------
+# Logging — send Django errors to stderr so Cloud Run captures them
+# ---------------------------------------------------------------------------
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "WARNING",
+            "propagate": False,
+        },
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+    },
+}
