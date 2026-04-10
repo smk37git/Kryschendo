@@ -13,7 +13,6 @@ config/.env
 
 # Django
 db.sqlite3
-staticfiles/
 media/
 
 # IDE
@@ -41,6 +40,3 @@ package-lock.json
 
 # Playwright MCP artifacts
 .playwright-mcp/
-*.png
-*.jpeg
-*.jpg
