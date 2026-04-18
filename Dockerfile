@@ -31,6 +31,10 @@ COPY . .
 # Collect static files at build time (no database needed for this)
 RUN SECRET_KEY=build-placeholder python manage.py collectstatic --noinput
 
+# Writable tmp dir for gunicorn worker heartbeat files
+RUN mkdir -p /tmp/gunicorn && chown app:app /tmp/gunicorn
+ENV TMPDIR=/tmp/gunicorn
+
 # Cloud Run sets PORT env var; default to 8080
 ENV PORT=8080
 USER app
