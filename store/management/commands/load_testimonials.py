@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from store.models import Review
+from store.models import Review, Service
 
 
 HEALING_TESTIMONIALS = [
@@ -97,4 +97,58 @@ class Command(BaseCommand):
                 f"Loaded {created} testimonials ({total} total: "
                 f"{len(HEALING_TESTIMONIALS)} healing, {len(INTUITIVE_TESTIMONIALS)} intuitive)."
             )
+        )
+
+        # Seed services
+        services_data = [
+            {
+                "title": "Kundalini Energy Transmission Session",
+                "slug": "kundalini-energy-transmission",
+                "description": (
+                    "Kundalini Energy Transmission Sessions are designed to support "
+                    "clients seeking relief from surgery recovery, chronic pain, illness, "
+                    "depression, anxiety, trauma, PTSD, and those wishing for deeper "
+                    "emotional, mental, and spiritual alignment with the higher Self "
+                    "in-play in human form."
+                ),
+                "price": 175.00,
+                "order": 1,
+            },
+            {
+                "title": "Mediumship Spirit Rescue Facilitation Session",
+                "slug": "mediumship-spirit-rescue",
+                "description": (
+                    "Spirit Rescue Facilitation sessions are designed to support "
+                    "individuals when spirits become earthbound, which can impact a "
+                    "person physically, mentally, and emotionally. These sessions address "
+                    "symptoms that may not be linked to identifiable health conditions "
+                    "or concerns."
+                ),
+                "price": 125.00,
+                "order": 2,
+            },
+            {
+                "title": "Clairvoyant Guidance Session",
+                "slug": "clairvoyant-guidance",
+                "description": (
+                    "Experience focused, insightful support for personal and spiritual "
+                    "clarity with Krystene, a seasoned clairvoyant and psychic intuitive. "
+                    "During your session, she connects with your unique energy to offer "
+                    "clarity and guidance in relationships, business dynamics, ambitions, "
+                    "self-expression, and your soul's path."
+                ),
+                "price": 150.00,
+                "order": 3,
+            },
+        ]
+        svc_created = 0
+        for data in services_data:
+            _, was_created = Service.objects.get_or_create(
+                slug=data["slug"],
+                defaults=data,
+            )
+            if was_created:
+                svc_created += 1
+        self.stdout.write(
+            self.style.SUCCESS(f"Loaded {svc_created} services ({len(services_data)} total).")
         )

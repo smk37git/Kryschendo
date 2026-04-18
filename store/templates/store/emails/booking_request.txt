@@ -1,0 +1,19 @@
+New Booking Request
+====================
+
+Submitted: {{ booking.created_at|date:"F j, Y g:i A" }}
+
+Client Information
+------------------
+Name: {{ booking.name }}
+Email: {{ booking.email }}
+Phone: {{ booking.phone|default:"Not provided" }}
+
+Session Details
+---------------
+Service: {{ booking.service_type|default:"General inquiry" }}
+Format: {{ booking.get_preferred_format_display }}
+Preferred Date/Time: {{ booking.preferred_datetime|date:"F j, Y g:i A"|default:"Flexible" }}
+
+Message:
+{{ booking.message|default:"No additional message." }}

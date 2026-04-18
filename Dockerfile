@@ -28,21 +28,19 @@ RUN addgroup --system app && adduser --system --ingroup app app
 COPY --from=builder /install /usr/local
 COPY . .
 
-# Build static files and bake SQLite database into image
-# Omit DATABASE_URL so settings.py default (BASE_DIR / db.sqlite3) is used
-RUN SECRET_KEY=build-placeholder python manage.py collectstatic --noinput && \
-    SECRET_KEY=build-placeholder python manage.py migrate --run-syncdb && \
-    SECRET_KEY=build-placeholder python manage.py load_testimonials
-
-# Make db writable by app user (for admin session writes, etc.)
-RUN chown app:app /app/db.sqlite3
+# Collect static files at build time (no database needed for this)
+RUN SECRET_KEY=build-placeholder python manage.py collectstatic --noinput
 
 # Cloud Run sets PORT env var; default to 8080
 ENV PORT=8080
 USER app
 
-CMD exec gunicorn config.wsgi:application \
-    --bind 0.0.0.0:$PORT \
-    --workers 2 \
-    --threads 4 \
-    --timeout 120
+# Run migrations and load data at startup, then start gunicorn.
+# This ensures Cloud SQL is reachable (not available at build time).
+CMD python manage.py migrate --noinput && \
+    python manage.py load_testimonials && \
+    exec gunicorn config.wsgi:application \
+        --bind 0.0.0.0:$PORT \
+        --workers 2 \
+        --threads 4 \
+        --timeout 120

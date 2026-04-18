@@ -64,7 +64,7 @@
           <a href="{% url 'store:service_list' %}" class="text-white/90 hover:text-gold transition-colors duration-300 font-body text-sm tracking-widest uppercase">Services</a>
           <a href="{% url 'store:review_list' %}" class="text-white/90 hover:text-gold transition-colors duration-300 font-body text-sm tracking-widest uppercase">Reviews</a>
           <a href="{% url 'main:contact' %}" class="text-white/90 hover:text-gold transition-colors duration-300 font-body text-sm tracking-widest uppercase">Contact</a>
-          <a href="{% url 'main:contact' %}" class="bg-gold hover:bg-gold-dark text-white px-5 py-2 rounded-md text-sm font-semibold tracking-wider uppercase transition-colors duration-300">Book a Session</a>
+          <a href="{% url 'store:booking_request' %}" class="bg-gold hover:bg-gold-dark text-white px-5 py-2 rounded-md text-sm font-semibold tracking-wider uppercase transition-colors duration-300">Book a Session</a>
         </div>
 
         <!-- Mobile Hamburger -->
@@ -85,7 +85,7 @@
         <a href="{% url 'store:service_list' %}" class="block text-white/90 hover:text-gold transition-colors py-2 text-sm tracking-widest uppercase">Services</a>
         <a href="{% url 'store:review_list' %}" class="block text-white/90 hover:text-gold transition-colors py-2 text-sm tracking-widest uppercase">Reviews</a>
         <a href="{% url 'main:contact' %}" class="block text-white/90 hover:text-gold transition-colors py-2 text-sm tracking-widest uppercase">Contact</a>
-        <a href="{% url 'main:contact' %}" class="block bg-gold hover:bg-gold-dark text-white px-5 py-3 rounded-md text-sm font-semibold tracking-wider uppercase text-center mt-2 transition-colors">Book a Session</a>
+        <a href="{% url 'store:booking_request' %}" class="block bg-gold hover:bg-gold-dark text-white px-5 py-3 rounded-md text-sm font-semibold tracking-wider uppercase text-center mt-2 transition-colors">Book a Session</a>
       </div>
     </div>
   </nav>
@@ -116,6 +116,7 @@
             <li><a href="{% url 'store:service_list' %}" class="text-cream/80 hover:text-gold transition-colors text-sm">Services</a></li>
             <li><a href="{% url 'store:review_list' %}" class="text-cream/80 hover:text-gold transition-colors text-sm">Reviews</a></li>
             <li><a href="{% url 'main:contact' %}" class="text-cream/80 hover:text-gold transition-colors text-sm">Contact</a></li>
+            <li><a href="{% url 'main:books_media' %}" class="text-cream/80 hover:text-gold transition-colors text-sm">Books & Media</a></li>
           </ul>
         </div>
 
@@ -142,8 +143,25 @@
         </div>
       </div>
 
+      <!-- Mailing List -->
+      <div class="mt-10 pt-8 border-t border-white/10">
+        <div class="max-w-md mx-auto text-center">
+          <h4 class="font-heading text-lg font-semibold text-gold mb-2">Stay Updated</h4>
+          <p class="text-cream/60 text-sm mb-4">Join the mailing list for updates on sessions, events, and new offerings.</p>
+          <form method="post" action="{% url 'main:subscribe' %}" class="flex flex-col sm:flex-row gap-2">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.path }}">
+            <input type="email" name="email" required placeholder="Your email address"
+                   class="flex-1 px-3 py-2 rounded-md border border-white/20 bg-white/10 text-white placeholder-white/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition text-sm">
+            <button type="submit" class="bg-gold hover:bg-gold-dark text-white px-5 py-2 rounded-md text-sm font-semibold tracking-wider uppercase transition-colors duration-300 whitespace-nowrap">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
       <!-- Bottom Bar -->
-      <div class="mt-12 pt-8 border-t border-white/10 text-center">
+      <div class="mt-8 pt-8 border-t border-white/10 text-center">
         <p class="text-cream/60 text-xs">&copy; {% now "Y" %} Kryschendo. All rights reserved.</p>
       </div>
     </div>

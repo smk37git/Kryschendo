@@ -1,0 +1,143 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Intuitive Session Consent Form — Kryschendo{% endblock %}
+{% block meta_description %}Client consent and release form for Intuitive Sessions with Krystene Du Maurier.{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-teal to-teal-dark relative overflow-hidden">
+  <div class="hero-orb hero-orb-1" style="width:250px;height:250px;top:-5%;left:5%;"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+    <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4 fade-in-up">Consent Form</p>
+    <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 fade-in-up" style="transition-delay: 0.1s;">Intuitive Session</h1>
+    <div class="section-divider fade-in-up" style="transition-delay: 0.2s;"></div>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-warm">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {% if messages %}
+    <div class="mb-8">
+      {% for message in messages %}
+      <div class="p-4 rounded-lg {% if message.tags == 'success' %}bg-teal/10 text-teal border border-teal/20{% else %}bg-red-50 text-red-700 border border-red-200{% endif %}">
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Consent Text -->
+    <div class="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-cream mb-12 fade-in-up">
+      <h2 class="font-heading text-2xl font-semibold text-teal mb-2">Client Legal Consent and Release</h2>
+      <div class="section-divider !mx-0 mb-8"></div>
+
+      <div class="text-near-black/80 leading-relaxed space-y-6">
+        <h3 class="font-heading text-xl font-semibold text-teal">Consent and Agreement</h3>
+
+        <p>Intuitive sessions facilitated by Krystene Du Maurier are designed to provide heart-centered, insightful guidance. Drawing on over 20 years of professional experience as a healer and psychic intuitive, Krystene connects with each client's energy to deliver clarity on questions and concerns. Sessions may involve intuitive impressions, practical guidance, and actionable insights tailored to individual needs. Both Krystene's intuitive guides and those of the client may be present during the session. Modalities include in-person appointments in Seattle, WA, and remote sessions via phone through 12listen.com.</p>
+
+        <p>I, the undersigned, voluntarily consent to participate in an intuitive session facilitated by Krystene Du Maurier. I understand the session is intended solely to provide spiritual guidance, emotional support, and personal insight. The facilitator acts as a channel for intuitive information and does not offer diagnosis, treatment, or cure for any medical or mental health condition.</p>
+
+        <p>I acknowledge intuitive sessions are a complementary practice and do not replace professional medical, psychological, or psychiatric care. I agree to seek appropriate professional advice for any health-related concerns. The facilitator makes no guarantees regarding specific outcomes; experiences or benefits described may vary for each individual.</p>
+
+        <p>I understand sessions may include the sharing of intuitive impressions and guidance, which may result in sensations such as emotional release or increased clarity. All insights provided are offered for my personal consideration and growth and are not to be interpreted as professional advice in legal, financial, or health matters.</p>
+
+        <p>I acknowledge my participation is entirely voluntary and I may withdraw from the session at any time by notifying the facilitator. I agree to communicate any discomfort or concerns during the session.</p>
+
+        <p>By signing below, I release and hold harmless Krystene Du Maurier, Kryschendo LLC from any claims, liabilities, or damages arising from my participation in the session. I affirm that I have read and understood this consent form and agree to its terms in full.</p>
+      </div>
+    </div>
+
+    <!-- Consent Form -->
+    <div class="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-cream fade-in-up">
+      <h2 class="font-heading text-2xl font-semibold text-teal mb-2">Client Signature</h2>
+      <div class="section-divider !mx-0 mb-8"></div>
+
+      <form method="post" class="space-y-6">
+        {% csrf_token %}
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="{{ form.client_name.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.client_name.label }}</label>
+            {{ form.client_name }}
+            {% if form.client_name.errors %}<p class="text-red-600 text-xs mt-1">{{ form.client_name.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label for="{{ form.session_date.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.session_date.label }}</label>
+            {{ form.session_date }}
+            {% if form.session_date.errors %}<p class="text-red-600 text-xs mt-1">{{ form.session_date.errors.0 }}</p>{% endif %}
+          </div>
+        </div>
+
+        <div>
+          <label for="{{ form.location_or_platform.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.location_or_platform.label }}</label>
+          {{ form.location_or_platform }}
+          {% if form.location_or_platform.errors %}<p class="text-red-600 text-xs mt-1">{{ form.location_or_platform.errors.0 }}</p>{% endif %}
+        </div>
+
+        <!-- Agreement Checkbox -->
+        <div class="flex items-start gap-3 p-4 bg-cream-light rounded-lg border border-cream">
+          {{ form.agrees_to_terms }}
+          <label for="{{ form.agrees_to_terms.id_for_label }}" class="text-sm text-near-black/80 leading-relaxed cursor-pointer">
+            {{ form.agrees_to_terms.label }}
+          </label>
+        </div>
+        {% if form.agrees_to_terms.errors %}<p class="text-red-600 text-xs mt-1">{{ form.agrees_to_terms.errors.0 }}</p>{% endif %}
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="{{ form.typed_signature.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.typed_signature.label }}</label>
+            {{ form.typed_signature }}
+            {% if form.typed_signature.errors %}<p class="text-red-600 text-xs mt-1">{{ form.typed_signature.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label for="{{ form.date_signed.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.date_signed.label }}</label>
+            {{ form.date_signed }}
+            {% if form.date_signed.errors %}<p class="text-red-600 text-xs mt-1">{{ form.date_signed.errors.0 }}</p>{% endif %}
+          </div>
+        </div>
+
+        <p class="text-near-black/70 text-sm">Facilitator Name: Krystene Du Maurier</p>
+
+        <!-- Guardian Section -->
+        <div class="border-t border-cream pt-6 mt-6">
+          <div class="flex items-center gap-3 mb-6">
+            <input type="checkbox" id="is-minor" class="w-5 h-5 text-teal border-gray-300 rounded focus:ring-[#C4A265]">
+            <label for="is-minor" class="text-sm font-medium text-near-black cursor-pointer">This client is under the age of 18</label>
+          </div>
+
+          <div id="guardian-fields" class="hidden space-y-6">
+            <h3 class="font-heading text-lg font-semibold text-teal">Parent/Legal Guardian Signature</h3>
+            <div>
+              <label for="{{ form.guardian_name.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.guardian_name.label }}</label>
+              {{ form.guardian_name }}
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="{{ form.guardian_signature.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.guardian_signature.label }}</label>
+                {{ form.guardian_signature }}
+              </div>
+              <div>
+                <label for="{{ form.guardian_date_signed.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.guardian_date_signed.label }}</label>
+                {{ form.guardian_date_signed }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-teal hover:bg-teal-dark text-white px-8 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+          Submit Consent Form
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('is-minor').addEventListener('change', function() {
+  document.getElementById('guardian-fields').classList.toggle('hidden', !this.checked);
+});
+</script>
+{% endblock %}

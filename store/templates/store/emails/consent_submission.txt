@@ -1,0 +1,22 @@
+Consent Form Submission
+========================
+
+Form Type: {{ submission.get_form_type_display }}
+Submitted: {{ submission.created_at|date:"F j, Y g:i A" }}
+
+Client Information
+------------------
+Client Name: {{ submission.client_name }}
+Date of Session: {{ submission.session_date|date:"F j, Y" }}
+Location/Platform: {{ submission.location_or_platform }}
+Agreed to Terms: Yes
+Typed Signature: {{ submission.typed_signature }}
+Date Signed: {{ submission.date_signed|date:"F j, Y" }}
+{% if submission.guardian_name %}
+Parent/Legal Guardian
+---------------------
+Guardian Name: {{ submission.guardian_name }}
+Guardian Signature: {{ submission.guardian_signature }}
+Guardian Date Signed: {{ submission.guardian_date_signed|date:"F j, Y" }}
+{% endif %}
+IP Address: {{ submission.ip_address|default:"Not recorded" }}

@@ -1,0 +1,9 @@
+New Contact Form Submission
+===========================
+
+Name: {{ submission.name }}
+Email: {{ submission.email }}
+Date: {{ submission.created_at|date:"F j, Y g:i A" }}
+
+Message:
+{{ submission.message }}

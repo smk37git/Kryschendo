@@ -99,26 +99,50 @@
         </div>
       </div>
 
-      <!-- Booking CTA -->
+      <!-- Contact Form -->
       <div class="fade-in-up">
         <div class="bg-white rounded-2xl p-8 shadow-sm border border-cream relative overflow-hidden">
           <!-- Gold top accent -->
           <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
-          <h2 class="font-heading text-2xl font-semibold text-teal mb-3">Schedule a Session</h2>
+
+          {% if messages %}
+          <div class="mb-6">
+            {% for message in messages %}
+            <div class="p-4 rounded-lg {% if message.tags == 'success' %}bg-teal/10 text-teal border border-teal/20{% else %}bg-red-50 text-red-700 border border-red-200{% endif %}">
+              {{ message }}
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <h2 class="font-heading text-2xl font-semibold text-teal mb-3">Send a Message</h2>
           <p class="text-near-black/60 text-sm mb-7 leading-relaxed">
             Reach out to book your healing session or ask any questions. Krystene welcomes all inquiries with warmth and compassion.
           </p>
 
-          <div class="space-y-3">
-            <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer"
-               class="group flex items-center justify-center gap-2 w-full bg-teal hover:bg-teal/90 text-white px-6 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:shadow-teal/20 hover:-translate-y-0.5">
-              Book on 12listen.com
+          <form method="post" action="{% url 'main:contact' %}" class="space-y-5">
+            {% csrf_token %}
+            {% for field in form %}
+            <div>
+              <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ field.label }}</label>
+              {{ field }}
+              {% if field.errors %}
+              <p class="text-red-600 text-xs mt-1">{{ field.errors.0 }}</p>
+              {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit"
+                    class="group flex items-center justify-center gap-2 w-full bg-teal hover:bg-teal-dark text-white px-6 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:shadow-teal/20 hover:-translate-y-0.5">
+              Send Message
               <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-            <a href="mailto:kdl9621@hotmail.com"
-               class="group flex items-center justify-center gap-2 w-full bg-gold hover:bg-gold-dark text-white px-6 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5">
-              Send an Email
-              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </button>
+          </form>
+
+          <div class="mt-5 flex flex-col sm:flex-row gap-3">
+            <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer"
+               class="group flex items-center justify-center gap-2 flex-1 bg-gold hover:bg-gold-dark text-white px-5 py-3 rounded-lg font-semibold tracking-wider uppercase text-xs text-center transition-all duration-300 hover:shadow-lg hover:shadow-gold/20">
+              Book on 12listen.com
+              <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
           </div>
 

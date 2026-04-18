@@ -1,0 +1,33 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Consent Form Submitted — Kryschendo{% endblock %}
+
+{% block content %}
+<section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-teal to-teal-dark">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <div class="fade-in-up">
+      <svg class="w-16 h-16 text-gold mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      <h1 class="font-heading text-4xl md:text-5xl font-semibold text-white mb-6">Thank You</h1>
+      <p class="text-cream/80 text-lg max-w-2xl mx-auto">Your consent form has been submitted successfully. Krystene will receive a copy via email.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-warm">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+    <h2 class="font-heading text-2xl font-semibold text-teal mb-4">What's Next?</h2>
+    <p class="text-near-black/70 leading-relaxed mb-8">If you haven't already, please complete the booking form to schedule your session. Sessions must be paid in advance prior to your appointment.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="{% url 'store:booking_request' %}" class="bg-teal hover:bg-teal-dark text-white px-8 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+        Book a Session
+      </a>
+      <a href="{% url 'store:service_list' %}" class="border-2 border-teal text-teal hover:bg-teal hover:text-white px-8 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300">
+        View Services
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

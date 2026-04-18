@@ -1,0 +1,138 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Clairvoyant Guidance Session — Kryschendo{% endblock %}
+{% block meta_description %}Insightful guidance for personal and spiritual clarity with Krystene, a seasoned clairvoyant and psychic intuitive.{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-teal to-teal-dark relative overflow-hidden">
+  <div class="hero-orb hero-orb-1" style="width:250px;height:250px;top:-5%;left:5%;"></div>
+  <div class="hero-orb hero-orb-2" style="width:300px;height:300px;bottom:-10%;right:0%;"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+    <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4 fade-in-up">Service</p>
+    <h1 class="font-heading text-4xl md:text-5xl font-semibold text-white mb-6 fade-in-up" style="transition-delay: 0.1s;">Clairvoyant Guidance Session</h1>
+    <div class="section-divider fade-in-up" style="transition-delay: 0.2s;"></div>
+  </div>
+</section>
+
+<!-- Service Description -->
+<section class="py-16 md:py-24 bg-warm">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="fade-in-up">
+      <h2 class="font-heading text-2xl font-semibold text-teal mb-4">Insightful Guidance for Personal and Spiritual Clarity</h2>
+      <div class="section-divider !mx-0 mb-8"></div>
+
+      <div class="text-near-black/80 leading-relaxed space-y-6">
+        <p>Experience focused, insightful support for personal and spiritual clarity with Krystene, a seasoned clairvoyant and psychic intuitive. During your session, she connects with your unique energy to offer clarity and guidance in relationships, business dynamics, ambitions, self-expression, and your soul's path. Each session is heart-centered and tailored to your long-term and immediate needs, helping you understand your situation, identify positive steps forward, and find answers to your questions with empathy and precision.</p>
+
+        <p>What to Expect: You'll receive actionable insights and compassionate guidance designed to empower you—whether you're seeking direction for a current challenge or long-term growth. All sessions are confidential and held in a supportive, nonjudgmental environment.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="mt-16 fade-in-up">
+      <div class="space-y-4" id="faq-accordion">
+        <!-- FAQ 1 -->
+        <div class="bg-white rounded-lg border border-cream overflow-hidden">
+          <button class="faq-toggle w-full flex items-center justify-between p-5 text-left" aria-expanded="false">
+            <span class="font-semibold text-near-black">Client Experiences</span>
+            <svg class="faq-chevron w-5 h-5 text-gold transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content hidden px-5 pb-5">
+            <p class="text-near-black/70 leading-relaxed">Check the <a href="{% url 'store:review_list' %}" class="text-teal hover:text-gold underline transition-colors">reviews page</a>—there are many!</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-white rounded-lg border border-cream overflow-hidden">
+          <button class="faq-toggle w-full flex items-center justify-between p-5 text-left" aria-expanded="false">
+            <span class="font-semibold text-near-black">Will my privacy be respected?</span>
+            <svg class="faq-chevron w-5 h-5 text-gold transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content hidden px-5 pb-5">
+            <p class="text-near-black/70 leading-relaxed">Absolutely. All sessions are confidential and conducted with care and discretion. Your experiences and personal information remain private and protected.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing: In-Person -->
+    <div class="mt-16 fade-in-up">
+      <h2 class="font-heading text-2xl font-semibold text-teal mb-4">What is the cost of an intuitive session?</h2>
+      <div class="section-divider !mx-0 mb-8"></div>
+
+      <div class="space-y-6">
+        <!-- In-Person Pricing -->
+        <div class="p-6 bg-cream-light rounded-lg border border-cream">
+          <h3 class="font-heading text-xl font-semibold text-teal mb-3">In-person, Seattle WA</h3>
+          <p class="text-near-black/70 leading-relaxed mb-4">Krystene's pricing structure is straightforward and designed to accommodate a variety of needs. In-person sessions in Seattle, WA are available for $150 USD per 60-minute appointment. If you reside in or are visiting the Seattle area, you're welcome to schedule an in-person session at your convenience. Note that sessions must be paid in advance prior to your appointment.</p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream">
+            <span class="text-near-black/70">Investment</span>
+            <span class="font-heading text-2xl font-semibold text-teal">$150 <span class="text-base font-normal text-near-black/50">USD / 60 min</span></span>
+          </div>
+        </div>
+
+        <!-- Phone Pricing -->
+        <div class="p-6 bg-cream-light rounded-lg border border-cream">
+          <h3 class="font-heading text-xl font-semibold text-teal mb-3">Over the phone consultation</h3>
+          <p class="text-near-black/70 leading-relaxed mb-4">For those outside the region or seeking remote support, phone consultations are offered through 12listen.com. These sessions operate on a flexible, by-the-minute pricing model that adjusts throughout the week, making it easy for both non-local and international clients to connect directly with Krystene. There are no minimum or maximum time requirements—sessions can be as brief or as in-depth as you prefer.</p>
+          <p class="text-near-black/70 leading-relaxed">To get started with phone consultations, simply create a click4advisor account before your initial session. Once your account is set up, the process is seamless, allowing you to reach Krystene quickly whenever support is needed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking -->
+    <div class="mt-16 fade-in-up">
+      <h2 class="font-heading text-2xl font-semibold text-teal mb-6">Ready to Begin?</h2>
+      <div class="section-divider !mx-0 mb-8"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="{% url 'store:booking_request' %}" class="bg-teal hover:bg-teal-dark text-white px-6 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+          Book Now
+        </a>
+        <a href="https://www.12listen.com/" target="_blank" rel="noopener noreferrer" class="bg-gold hover:bg-gold-dark text-white px-6 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+          12listen.com
+        </a>
+        <a href="{% url 'store:consent_form' 'intuitive' %}" class="border-2 border-teal text-teal hover:bg-teal hover:text-white px-6 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+          Consent Form
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Reviews -->
+    {% if reviews %}
+    <div class="mt-16 fade-in-up">
+      <h2 class="font-heading text-2xl font-semibold text-teal mb-6">Client Experiences</h2>
+      <div class="section-divider !mx-0 mb-8"></div>
+      <div class="space-y-6">
+        {% for review in reviews|slice:":5" %}
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-cream">
+          <div class="star-rating text-sm mb-3">
+            {% for i in "12345" %}
+              {% if forloop.counter <= review.rating %}&#9733;{% else %}&#9734;{% endif %}
+            {% endfor %}
+          </div>
+          <p class="text-near-black/80 text-sm leading-relaxed italic">"{{ review.body }}"</p>
+          <p class="text-teal font-semibold text-sm mt-3">— {{ review.author_name }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-toggle').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var content = this.nextElementSibling;
+    var chevron = this.querySelector('.faq-chevron');
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !expanded);
+    content.classList.toggle('hidden');
+    chevron.style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+});
+</script>
+{% endblock %}

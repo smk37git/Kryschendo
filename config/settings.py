@@ -152,6 +152,24 @@ SECURE_BROWSER_XSS_FILTER = True  # security: X-XSS-Protection: 1; mode=block
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"  # security: limit referrer leakage
 
 # ---------------------------------------------------------------------------
+# Email configuration
+# ---------------------------------------------------------------------------
+EMAIL_BACKEND = env(
+    "EMAIL_BACKEND",
+    default="django.core.mail.backends.console.EmailBackend",
+)
+EMAIL_HOST = env("EMAIL_HOST", default="smtp-mail.outlook.com")
+EMAIL_PORT = env.int("EMAIL_PORT", default=587)
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="")
+EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default=True)
+DEFAULT_FROM_EMAIL = env(
+    "DEFAULT_FROM_EMAIL",
+    default="Kryschendo <kdl9621@hotmail.com>",
+)
+CONTACT_EMAIL = env("CONTACT_EMAIL", default="kdl9621@hotmail.com")
+
+# ---------------------------------------------------------------------------
 # Logging — send Django errors to stderr so Cloud Run captures them
 # ---------------------------------------------------------------------------
 LOGGING = {

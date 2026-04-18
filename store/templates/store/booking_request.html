@@ -1,0 +1,96 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Book a Session — Kryschendo{% endblock %}
+{% block meta_description %}Schedule a healing session with Krystene Du Maurier. Choose from remote, in-person, or phone consultations.{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-teal to-teal-dark relative overflow-hidden">
+  <div class="hero-orb hero-orb-1" style="width:250px;height:250px;top:-5%;left:5%;"></div>
+  <div class="hero-orb hero-orb-2" style="width:300px;height:300px;bottom:-10%;right:0%;"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+    <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4 fade-in-up">Schedule</p>
+    <h1 class="font-heading text-4xl md:text-5xl font-semibold text-white mb-6 fade-in-up" style="transition-delay: 0.1s;">Book a Session</h1>
+    <div class="section-divider fade-in-up" style="transition-delay: 0.2s;"></div>
+    <p class="text-cream/80 text-lg max-w-2xl mx-auto fade-in-up" style="transition-delay: 0.3s;">
+      Complete the form below to request a session. Krystene will review your request and confirm availability.
+    </p>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-warm">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {% if messages %}
+    <div class="mb-8">
+      {% for message in messages %}
+      <div class="p-4 rounded-lg {% if message.tags == 'success' %}bg-teal/10 text-teal border border-teal/20{% else %}bg-red-50 text-red-700 border border-red-200{% endif %}">
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-cream fade-in-up">
+      <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+
+      <form method="post" class="space-y-6">
+        {% csrf_token %}
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="{{ form.name.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.name.label }} <span class="text-red-500">*</span></label>
+            {{ form.name }}
+            {% if form.name.errors %}<p class="text-red-600 text-xs mt-1">{{ form.name.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.email.label }} <span class="text-red-500">*</span></label>
+            {{ form.email }}
+            {% if form.email.errors %}<p class="text-red-600 text-xs mt-1">{{ form.email.errors.0 }}</p>{% endif %}
+          </div>
+        </div>
+
+        <div>
+          <label for="{{ form.phone.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.phone.label }}</label>
+          {{ form.phone }}
+          {% if form.phone.errors %}<p class="text-red-600 text-xs mt-1">{{ form.phone.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="{{ form.service_type.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.service_type.label }} <span class="text-red-500">*</span></label>
+            {{ form.service_type }}
+            {% if form.service_type.errors %}<p class="text-red-600 text-xs mt-1">{{ form.service_type.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label for="{{ form.preferred_format.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.preferred_format.label }} <span class="text-red-500">*</span></label>
+            {{ form.preferred_format }}
+            {% if form.preferred_format.errors %}<p class="text-red-600 text-xs mt-1">{{ form.preferred_format.errors.0 }}</p>{% endif %}
+          </div>
+        </div>
+
+        <div>
+          <label for="{{ form.preferred_datetime.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.preferred_datetime.label }}</label>
+          {{ form.preferred_datetime }}
+          {% if form.preferred_datetime.errors %}<p class="text-red-600 text-xs mt-1">{{ form.preferred_datetime.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div>
+          <label for="{{ form.message.id_for_label }}" class="block text-sm font-medium text-near-black mb-1.5">{{ form.message.label }}</label>
+          {{ form.message }}
+          {% if form.message.errors %}<p class="text-red-600 text-xs mt-1">{{ form.message.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div class="p-4 bg-cream-light rounded-lg border border-cream">
+          <p class="text-near-black/60 text-sm leading-relaxed">Sessions must be paid in advance prior to your appointment. Krystene will confirm availability and provide payment details after reviewing your request.</p>
+        </div>
+
+        <button type="submit" class="w-full bg-teal hover:bg-teal-dark text-white px-8 py-4 rounded-lg font-semibold tracking-wider uppercase text-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+          Submit Booking Request
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -135,12 +135,23 @@
   </div>
 </section>
 
+<!-- Leave a Review -->
+<section class="py-12 md:py-16 bg-cream-light">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center fade-in-up">
+    <h2 class="font-heading text-2xl md:text-3xl font-semibold text-teal mb-4">Share Your Experience</h2>
+    <p class="text-near-black/60 text-lg mb-6">Have you worked with Krystene? Your words can inspire others on their healing journey.</p>
+    <a href="{% url 'store:submit_review' %}" class="inline-block bg-teal hover:bg-teal-dark text-white px-10 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-teal/25">
+      Leave a Review
+    </a>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="py-16 md:py-20 bg-teal">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center fade-in-up">
     <h2 class="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">Experience It For Yourself</h2>
     <p class="text-cream/80 text-lg mb-8">Join the many who have transformed their lives through Krystene's healing work.</p>
-    <a href="{% url 'main:contact' %}" class="inline-block bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/25">
+    <a href="{% url 'store:booking_request' %}" class="inline-block bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-md font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/25">
       Schedule a Session
     </a>
   </div>
