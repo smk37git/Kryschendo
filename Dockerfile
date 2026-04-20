@@ -28,7 +28,7 @@ RUN addgroup --system app && adduser --system --ingroup app app
 COPY --from=builder /install /usr/local
 COPY . .
 
-# Collect static files at build time (no database needed for this)
+# Collect static files at build time (no database needed)
 RUN SECRET_KEY=build-placeholder python manage.py collectstatic --noinput
 
 # Writable tmp dir for gunicorn worker heartbeat files
